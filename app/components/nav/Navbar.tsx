@@ -10,7 +10,7 @@ const Navbar = () => {
       sticky 
       top-0
       w-full
-    bg-slate-200
+    bg-slate-50
       z-30
       shadow-sm
   "
