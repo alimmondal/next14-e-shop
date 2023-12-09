@@ -21,10 +21,10 @@ export const product = {
         "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2F1694245647731-iphone14-gray.png?alt=media&token=ba0019e0-a6cb-4da7-b214-6252bf57f7e3",
     },
     {
-      color: "rosy",
-      colorCode: "#8058",
+      color: "golden",
+      colorCode: "#FEE469",
       image:
-        "https://firebasestorage.googleapis.com/v0/b/e-shop-vid.appspot.com/o/products%2F1694245647731-iphone14-gray.png?alt=media&token=ba0019e0-a6cb-4da7-b214-6252bf57f7e3",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStfOx2SbgydGj4ZnxP4bOiqCvNyH2aSMMWH3QlrsBzaOUHy1IkoWEMM0z-5O2XZ2_oHbw&usqp=CAU",
     },
   ],
   reviews: [
