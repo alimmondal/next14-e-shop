@@ -1,9 +1,9 @@
 "use client";
 import Button from "@/app/components/products/Button";
+import ProductImgView from "@/app/components/products/ProductImgView";
 import SetColor from "@/app/components/products/SetColor";
 import SetQuantity from "@/app/components/products/SetQuantity";
 import { Rating } from "@mui/material";
-import Image from "next/image";
 import React, { useCallback, useState } from "react";
 
 interface ProductDetailsProps {
@@ -82,14 +82,13 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         w-full
         "
       >
-        <Image
-          src={product.images[0].image}
-          fill
-          alt="banner"
-          className="w-full h-full relative object-contain"
+        <ProductImgView
+          cartProduct={cartProduct}
+          product={product}
+          handleColorSelect={handleColorSelect}
         />
       </div>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 text-slate-700 text-sm">
         <h2 className="text-3xl font-bold">{product.name}</h2>
         <div className="flex gap-2">
           <Rating value={productRating} readOnly />

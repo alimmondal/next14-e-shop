@@ -48,7 +48,7 @@ const ProductImgView: React.FC<ProductImgProps> = ({
             <div
               key={image.color}
               onClick={() => handleColorSelect(image)}
-              className={`relative w-[809%] aspect-square rounded border-teal-300 
+              className={`relative w-[80%] aspect-square rounded border-teal-300 
             ${
               cartProduct.selectedImg.color === image.color
                 ? "border-[1.5px]"
