@@ -1,5 +1,6 @@
 import Container from "@/app/components/Container";
 import { product } from "@/utils/product";
+import ListRating from "./ListRating";
 import ProductDetails from "./ProductDetails";
 
 interface IParams {
@@ -13,7 +14,9 @@ const Product = ({ params }: { params: IParams }) => {
       <Container>
         <ProductDetails product={product}></ProductDetails>
         <div className="flex flex-col mt-20 gap-4">Add Rating</div>
-        <div className="">List</div>
+        <div className="">
+          <ListRating product={product} />
+        </div>
       </Container>
     </div>
   );

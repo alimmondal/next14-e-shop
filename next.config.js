@@ -7,6 +7,7 @@ const nextConfig = {
       "m.media-amazon.com",
       "vibegaming.com.bd",
       "i.rtings.com",
+      "lh3.googleusercontent.com",
     ],
   },
 };
