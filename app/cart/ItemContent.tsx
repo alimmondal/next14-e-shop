@@ -61,7 +61,9 @@ const ItemContent = ({ item }: ItemContentProps) => {
           handleQtyIncrease={() => {}}
         />
       </div>
-      <div className="justify-self-end font-semibold"></div>
+      <div className="justify-self-end font-semibold">
+        {formatPrice(item.price * item.quantity)}
+      </div>
     </div>
   );
 };

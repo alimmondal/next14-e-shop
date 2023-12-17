@@ -48,10 +48,29 @@ export const CartContextProvider = (props: Props) => {
     });
   }, []);
 
+  const handleRemoveProductToCart = useCallback(
+    (product: CartProductType) => {
+      if (cartProducts) {
+        const filteredProducts = cartProducts.filter((item) => {
+          return item.id !== product.id;
+        });
+        setCartProducts(filteredProducts);
+
+        toast.success("product removed");
+        localStorage.setItem(
+          "eShopCartItems",
+          JSON.stringify(filteredProducts)
+        );
+      }
+    },
+    [cartProducts]
+  );
+
   const value = {
     cartTotalQty,
     cartProducts,
     handleAddProductToCart,
+    handleRemoveProductToCart,
   };
   return <CartContext.Provider value={value} {...props} />;
 };
