@@ -1,4 +1,5 @@
 "use client";
+import { useCart } from "@/hooks/useCart";
 import { formatPrice } from "@/utils/formatPrice";
 import { truncateText } from "@/utils/truncateText";
 import Image from "next/image";
@@ -9,6 +10,7 @@ interface ItemContentProps {
   item: CartProductType;
 }
 const ItemContent = ({ item }: ItemContentProps) => {
+  const { handleRemoveProductFromCart } = useCart();
   return (
     <div
       className="
@@ -46,7 +48,10 @@ const ItemContent = ({ item }: ItemContentProps) => {
           <Link href={`/product/${item.id}`}>{truncateText(item.name)}</Link>
           <div className="">{item.selectedImg.color}</div>
           <div className="w-[70px]">
-            <button onClick={() => {}} className="text-slate-500 underline">
+            <button
+              onClick={() => handleRemoveProductFromCart(item)}
+              className="text-slate-500 underline"
+            >
               Remove
             </button>
           </div>
