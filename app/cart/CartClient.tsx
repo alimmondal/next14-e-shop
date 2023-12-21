@@ -7,7 +7,7 @@ import Heading from "../components/products/Heading";
 import ItemContent from "./ItemContent";
 
 const CartClient = () => {
-  const { cartProducts } = useCart();
+  const { cartProducts, handleClearCart } = useCart();
 
   if (!cartProducts || cartProducts.length === 0) {
     return (
@@ -40,7 +40,12 @@ const CartClient = () => {
       </div>
       <div className="flex justify-between gap-4 border-t-[1.5px] border-slate-200 py-4">
         <div className="w-[90px]">
-          <Button label="Clear Cart" onClick={() => {}} small outline />
+          <Button
+            label="Clear Cart"
+            onClick={() => handleClearCart()}
+            small
+            outline
+          />
         </div>
         <div className="flex flex-col gap-2 items-start text-sm">
           <div className="flex justify-between w-full text-base font-semibold">

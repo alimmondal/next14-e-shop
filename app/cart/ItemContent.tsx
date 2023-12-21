@@ -10,7 +10,8 @@ interface ItemContentProps {
   item: CartProductType;
 }
 const ItemContent = ({ item }: ItemContentProps) => {
-  const { handleRemoveProductFromCart } = useCart();
+  const { handleRemoveProductFromCart, handleQtyIncrease, handleQtyDecrease } =
+    useCart();
   return (
     <div
       className="
@@ -62,8 +63,8 @@ const ItemContent = ({ item }: ItemContentProps) => {
         <SetQuantity
           cartCounter={true}
           cartProduct={item}
-          handleQtyDecrease={() => {}}
-          handleQtyIncrease={() => {}}
+          handleQtyDecrease={() => handleQtyDecrease(item)}
+          handleQtyIncrease={() => handleQtyIncrease(item)}
         />
       </div>
       <div className="justify-self-end font-semibold">

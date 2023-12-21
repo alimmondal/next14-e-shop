@@ -69,14 +69,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
     return <hr className="w-[30% my-2]" />;
   };
 
-  const handleColorSelect = useCallback(
-    (value: selectedImgType) => {
-      setCartProduct((prev) => {
-        return { ...prev, selectedImg: value };
-      });
-    },
-    [cartProduct.selectedImg]
-  );
+  const handleColorSelect = useCallback((value: selectedImgType) => {
+    setCartProduct((prev) => {
+      return { ...prev, selectedImg: value };
+    });
+  }, []);
 
   const handleQtyIncrease = useCallback(() => {
     setCartProduct((prev) => {
