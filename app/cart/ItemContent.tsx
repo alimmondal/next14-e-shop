@@ -46,7 +46,9 @@ const ItemContent = ({ item }: ItemContentProps) => {
           </div>
         </Link>
         <div className="flex flex-col justify-between">
-          <Link href={`/product/${item.id}`}>{truncateText(item.name)}</Link>
+          <Link className="underline" href={`/product/${item.id}`}>
+            {truncateText(item.name)}
+          </Link>
           <div className="">{item.selectedImg.color}</div>
           <div className="w-[70px]">
             <button
