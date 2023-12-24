@@ -22,15 +22,16 @@ const Input: React.FC<InputProps> = ({
   errors,
 }) => {
   return (
-    <div className="w-full relative">
-      <input
-        autoComplete="off"
-        id={id}
-        disabled={disabled}
-        {...register(id, { required })}
-        type={type}
-        placeholder=""
-        className={`
+    <div className="pt-4">
+      <div className="w-full relative">
+        <input
+          autoComplete="off"
+          id={id}
+          disabled={disabled}
+          {...register(id, { required })}
+          type={type}
+          placeholder=""
+          className={`
               peer
               w-full
               p-4
@@ -46,10 +47,10 @@ const Input: React.FC<InputProps> = ({
               ${errors[id] ? "border-rose-400" : "border-slate-300"}
               ${errors[id] ? "focus:border-rose-400" : "focus:border-slate-300"}
               `}
-      />
-      <label
-        htmlFor={id}
-        className={`absolute
+        />
+        <label
+          htmlFor={id}
+          className={`absolute
       cursor-text
       text-md
       duration-150
@@ -65,9 +66,10 @@ const Input: React.FC<InputProps> = ({
       peer-focus:-translate-y-4
       ${errors[id] ? "text-rose-500" : "text-slate-400"}
       `}
-      >
-        {label}
-      </label>
+        >
+          {label}
+        </label>
+      </div>
     </div>
   );
 };
