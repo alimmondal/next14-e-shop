@@ -6,13 +6,19 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { AiOutlineGoogle } from "react-icons/ai";
+import {
+  AiOutlineEye,
+  AiOutlineEyeInvisible,
+  AiOutlineGoogle,
+} from "react-icons/ai";
 import Input from "../components/input/Input";
 import Button from "../components/products/Button";
 import Heading from "../components/products/Heading";
 
 const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -88,15 +94,53 @@ const RegisterForm = () => {
         errors={errors}
         required
       />
-      <Input
-        id="password"
-        label="Password"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-        type="password"
-      />
+      <div className="relative">
+        <div className="">
+          <Input
+            id="password"
+            label="Password"
+            disabled={isLoading}
+            register={register}
+            errors={errors}
+            required
+            type={showPassword ? "text" : "password"}
+          />
+        </div>
+        <div
+          className="
+        mt-2 flex 
+        items-center 
+        absolute 
+        top-6 
+        left-[93%]"
+        >
+          <span
+            className="cursor-pointer"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            {showPassword ? (
+              <AiOutlineEyeInvisible size={34} />
+            ) : (
+              <AiOutlineEye size={34} />
+            )}
+          </span>
+          {/* <span className="ml-2">Show Password</span> */}
+        </div>
+      </div>
+      <div className="mt-2 flex items-center ">
+        <span
+          className="cursor-pointer"
+          onClick={() => setShowPassword((prev) => !prev)}
+        >
+          {showPassword ? (
+            <AiOutlineEyeInvisible size={34} />
+          ) : (
+            <AiOutlineEye size={34} />
+          )}
+        </span>
+        <span className="ml-2">Show Password</span>
+      </div>
+
       <Button
         label={isLoading ? "Loading..." : "sign up"}
         onClick={handleSubmit(onSubmit)}
