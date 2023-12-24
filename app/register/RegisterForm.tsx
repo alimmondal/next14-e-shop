@@ -1,11 +1,15 @@
 "use client";
+import axios from "axios";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { AiOutlineGoogle } from "react-icons/ai";
 import Input from "../components/input/Input";
 import Button from "../components/products/Button";
 import Heading from "../components/products/Heading";
-import { AiOutlineGoogle } from "react-icons/ai";
 
 const RegisterForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -21,10 +25,39 @@ const RegisterForm = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data: any) => {
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
-    console.log(data);
+    // console.log(data);
+
+    axios
+      .post("/api/register", data)
+      .then(() => {
+        toast.success("account created");
+
+        signIn("credentials", {
+          email: data.email,
+          password: data.password,
+          redirect: false,
+        }).then((callback) => {
+          if (callback?.ok) {
+            router.push("/cart");
+            // router.refresh();
+            toast.success("Logged in");
+          }
+
+          if (callback?.error) {
+            toast.error(callback.error);
+          }
+        });
+      })
+      .catch(() => toast.error("Something went wrong"))
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
+
   return (
     <>
       <div className="pb-8">
@@ -33,7 +66,7 @@ const RegisterForm = () => {
           outline
           label="Signup with google"
           icon={AiOutlineGoogle}
-          onClick={handleSubmit(onSubmit)}
+          onClick={() => {}}
         />
         <hr className="bg-slate-300 w-full h-px mt-4" />
       </div>
@@ -65,7 +98,7 @@ const RegisterForm = () => {
         type="password"
       />
       <Button
-        label={isLoading ? "Loading" : "sign up"}
+        label={isLoading ? "Loading..." : "sign up"}
         onClick={handleSubmit(onSubmit)}
       />
       <p className="text-sm mt-6 text-center">
