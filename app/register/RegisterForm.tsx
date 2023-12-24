@@ -48,7 +48,7 @@ const RegisterForm = () => {
           redirect: false,
         }).then((callback) => {
           if (callback?.ok) {
-            router.push("/cart");
+            router.push("/login");
             // router.refresh();
             toast.success("Logged in");
           }

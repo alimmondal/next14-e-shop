@@ -1,11 +1,14 @@
 "use client";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import { AiOutlineGoogle } from "react-icons/ai";
 import Input from "../components/input/Input";
 import Button from "../components/products/Button";
 import Heading from "../components/products/Heading";
-import { AiOutlineGoogle } from "react-icons/ai";
 
 const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -20,9 +23,26 @@ const LoginForm = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data: any) => {
+  const router = useRouter();
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
-    console.log(data);
+    // console.log(data);
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        router.push("/cart");
+        // router.refresh();
+        toast.success("Logged in");
+      }
+
+      if (callback?.error) {
+        toast.error(callback.error);
+      }
+    });
   };
   return (
     <>
@@ -54,7 +74,7 @@ const LoginForm = () => {
         type="password"
       />
       <Button
-        label={isLoading ? "Loading" : "Login"}
+        label={isLoading ? "Loading..." : "Login"}
         onClick={handleSubmit(onSubmit)}
       />
       <p className="text-sm mt-6 text-center">
