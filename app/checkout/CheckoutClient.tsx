@@ -5,10 +5,11 @@ import { StripeElementsOptions, loadStripe } from "@stripe/stripe-js";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import Button from "../components/products/Button";
 import CheckoutForm from "./CheckoutForm";
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLISHABLE_STRIPE_KEY as string
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
 );
 
 const CheckoutClient = () => {
@@ -20,8 +21,8 @@ const CheckoutClient = () => {
 
   const router = useRouter();
 
-  console.log("paymentIntent", paymentIntent);
-  console.log("clientSecret", clientSecret);
+  //   console.log("paymentIntent", paymentIntent);
+  //   console.log("clientSecret", clientSecret);
 
   useEffect(() => {
     // create a payment intent as soon as the page is loaded
@@ -77,6 +78,21 @@ const CheckoutClient = () => {
             handleSetPaymentSuccess={handleSetPaymentSuccess}
           />
         </Elements>
+      )}
+
+      {loading && <div className="text-center">Loading Checkout...</div>}
+
+      {loading && (
+        <div className="text-center text-rose-500">Something went wrong</div>
+      )}
+
+      {paymentSuccess && (
+        <div className="flex flex-col items-center gap-4">
+          <div className="text-teal-500 text-center">Payment Success</div>
+          <div className="max-w-[220px] w-full">
+            <Button label="View your orders" onClick={() => {}} />
+          </div>
+        </div>
       )}
     </div>
   );
