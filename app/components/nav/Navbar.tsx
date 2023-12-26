@@ -1,3 +1,4 @@
+import { getCurrentUser } from "@/actions/getCurrentUser";
 import { Redressed } from "next/font/google";
 import Link from "next/link";
 import Container from "../Container";
@@ -5,7 +6,9 @@ import CartCount from "./CartCount";
 import UserMenu from "./UserMenu";
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
-const Navbar = () => {
+const Navbar = async () => {
+  const currentUser = await getCurrentUser();
+  // console.log("USername: ", currentUser);
   return (
     <div
       className="
@@ -42,7 +45,7 @@ const Navbar = () => {
             <div className="flex items-center gap-8 md:gap-12">
               <CartCount />
             </div>
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </div>
         </Container>
       </div>

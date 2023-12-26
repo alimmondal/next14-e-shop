@@ -1,4 +1,3 @@
-import { getCurrentUser } from "@/actions/getCurrentUser";
 import CartProvider from "@/providers/CartProvider";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
@@ -19,9 +18,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const currentUser = await getCurrentUser();
-  console.log("USername: ", currentUser);
-
   return (
     <html lang="en">
       <body className={`${poppins.className} text-slate-700`}>

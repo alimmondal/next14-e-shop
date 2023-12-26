@@ -1,8 +1,9 @@
 "use client";
+import { SafeUser } from "@/type";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { AiOutlineGoogle } from "react-icons/ai";
@@ -10,7 +11,12 @@ import Input from "../components/input/Input";
 import Button from "../components/products/Button";
 import Heading from "../components/products/Heading";
 
-const LoginForm = () => {
+interface LoginFormProps {
+  currentUser: SafeUser | null;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
+  // console.log(currentUser);
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -24,6 +30,14 @@ const LoginForm = () => {
   });
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (currentUser) {
+      router.push("/cart");
+      router.refresh();
+    }
+  }, [currentUser, router]);
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
     // console.log(data);
@@ -44,6 +58,11 @@ const LoginForm = () => {
       }
     });
   };
+
+  if (currentUser) {
+    return <p className="text-center">Logged In. Redirecting...</p>;
+  }
+
   return (
     <>
       <div className="pb-8">
@@ -52,7 +71,9 @@ const LoginForm = () => {
           outline
           label="Login with google"
           icon={AiOutlineGoogle}
-          onClick={handleSubmit(onSubmit)}
+          onClick={() => {
+            signIn("google");
+          }}
         />
         <hr className="bg-slate-300 w-full h-px mt-4" />
       </div>
