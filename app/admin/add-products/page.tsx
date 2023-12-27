@@ -1,8 +1,8 @@
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import Container from "@/app/components/Container";
 import FormWrap from "@/app/components/FormWrap";
-import AddProductForm from "./AddProductForm";
 import NullData from "@/app/components/NullData";
+import AddProductForm from "./AddProductForm";
 
 const AddProducts = async () => {
   const currentUser = await getCurrentUser();

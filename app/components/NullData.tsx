@@ -2,7 +2,7 @@ interface NullDataProps {
   title: string;
 }
 
-const NullData = ({ title }: NullDataProps) => {
+const NullData: React.FC<NullDataProps> = ({ title }) => {
   return (
     <div className="w-ful h-[50vh] flex items-center justify-center text-xl md:text-2xl">
       <p className="font-medium">{title}</p>
