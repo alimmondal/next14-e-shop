@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { AiOutlineGoogle } from "react-icons/ai";
+import Button from "../components/Button";
+import Heading from "../components/Heading";
 import Input from "../components/input/Input";
-import Button from "../components/products/Button";
-import Heading from "../components/products/Heading";
 
 interface LoginFormProps {
   currentUser: SafeUser | null;

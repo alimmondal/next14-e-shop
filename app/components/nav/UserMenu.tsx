@@ -4,7 +4,7 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { useCallback, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
-import Avatar from "../products/Avatar";
+import Avatar from "../Avatar";
 import BackDrop from "./BackDrop";
 import MenuItem from "./MenuItem";
 

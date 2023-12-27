@@ -5,7 +5,7 @@ import { StripeElementsOptions, loadStripe } from "@stripe/stripe-js";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import Button from "../components/products/Button";
+import Button from "../components/Button";
 import CheckoutForm from "./CheckoutForm";
 
 const stripePromise = loadStripe(

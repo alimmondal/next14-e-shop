@@ -5,8 +5,8 @@ import { formatPrice } from "@/utils/formatPrice";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { MdArrowBack } from "react-icons/md";
-import Button from "../components/products/Button";
-import Heading from "../components/products/Heading";
+import Button from "../components/Button";
+import Heading from "../components/Heading";
 import ItemContent from "./ItemContent";
 
 interface CartClientProps {
