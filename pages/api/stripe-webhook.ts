@@ -1,6 +1,8 @@
+import prisma from "@/libs/prismadb";
 import { buffer } from "micro";
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
+import { type } from "os";
 
 export const config = {
   api: {
@@ -20,7 +22,7 @@ export default async function handler(
   const sig = req.headers["stripe-signature"];
 
   if (!sig) {
-    return res.status(404).send("Missing stripe signature");
+    return res.status(400).send("Missing stripe signature");
   }
 
   let event: Stripe.Event;
@@ -32,6 +34,21 @@ export default async function handler(
       process.env.STRIPE_WEBHOOK_SECRET!
     );
   } catch (error) {
-    console.log(error);
+    return res.status(400).send("webhook error" + error);
   }
+
+  switch (event.type) {
+    case "charge.succeeded":
+      const charge: any = event.data.object as Stripe.Charge;
+      if (typeof charge.payment_intent === "string") {
+        await prisma?.order.update({
+          where: { paymentIntentId: charge.payment_intent },
+          data: { status: "complete", address: charge.shipping?.address },
+        });
+      }
+      break;
+    default:
+      console.log("unknown event type:" + event.type);
+  }
+  res.json({ received: true });
 }

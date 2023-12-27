@@ -43,6 +43,7 @@ const CheckoutClient = () => {
           if (res.status === 401) {
             return router.push("/login");
           }
+
           return res.json();
         })
         .then((data) => {

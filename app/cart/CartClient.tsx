@@ -76,7 +76,6 @@ const CartClient: React.FC<CartClientProps> = ({ currentUser }) => {
             <span>Continue Shopping</span>
           </Link>
         </div>
-        0
       </div>
     </div>
   );
