@@ -4,6 +4,7 @@ import Heading from "@/app/components/Heading";
 import CategoryInput from "@/app/components/input/CategoryInput";
 import CustomCheckBox from "@/app/components/input/CustomCheckBox";
 import Input from "@/app/components/input/Input";
+import SelectColor from "@/app/components/input/SelectColor";
 import TextArea from "@/app/components/input/TextArea";
 import { categories } from "@/utils/Categories";
 import { colors } from "@/utils/Color";
@@ -124,7 +125,15 @@ const AddProductForm = () => {
         </div>
         <div className="grid grid-cols-2 gap-3">
           {colors.map((item, index) => {
-            return <></>;
+            return (
+              <SelectColor
+                key={index}
+                item={item}
+                addImageToState={() => {}}
+                removeImageFromState={() => {}}
+                isProductCreated={false}
+              />
+            );
           })}
         </div>
       </div>
