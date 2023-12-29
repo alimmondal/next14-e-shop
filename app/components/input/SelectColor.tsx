@@ -63,14 +63,14 @@ const SelectColor: React.FC<SelectColorProps> = ({
       </div>
       <>
         {isSelected && !file && (
-          <div className="text-center">
+          <div className="col-span-2 text-center">
             <SelectImage item={item} handleFileChange={handleFileChange} />
           </div>
         )}
         {file && (
-          <div className="flex flex-row gap-2 text-sm col-span-2 items-center justify-center">
+          <div className="flex flex-row gap-2 text-sm col-span-2 items-center justify-between">
             <p className="">{file?.name}</p>
-            <div className="">
+            <div className="w-70px">
               <Button
                 label="Cancel"
                 small
