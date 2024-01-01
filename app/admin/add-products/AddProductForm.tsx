@@ -10,12 +10,14 @@ import TextArea from "@/app/components/input/TextArea";
 import firebaseApp from "@/libs/firebase";
 import { categories } from "@/utils/Categories";
 import { colors } from "@/utils/Color";
+import axios from "axios";
 import {
   getDownloadURL,
   getStorage,
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import { useRouter } from "next/navigation";
 
 import { useCallback, useEffect, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
@@ -34,6 +36,7 @@ export type UploadedImageType = {
 };
 
 const AddProductForm = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [images, setImages] = useState<ImageType[] | null>();
   const [isProductCreated, setIsProductCreated] = useState(false);
@@ -105,7 +108,7 @@ const AddProductForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log("Product data: ", data);
     setIsLoading(true);
-    let uploadedImage: UploadedImageType[] = [];
+    let uploadedImages: UploadedImageType[] = [];
 
     if (!data.category) {
       setIsLoading(false);
@@ -149,7 +152,7 @@ const AddProductForm = () => {
                 () => {
                   getDownloadURL(uploadTask.snapshot.ref)
                     .then((downloadURL) => {
-                      uploadedImage.push({
+                      uploadedImages.push({
                         ...item,
                         image: downloadURL,
                       });
@@ -166,9 +169,28 @@ const AddProductForm = () => {
           }
         }
       } catch (error) {
-        console.log(error);
+        setIsLoading(false);
+        console.log("Error handling image upload", error);
+        return toast.error("Error handling image upload");
       }
     };
+    await handleImageUploads();
+    const productData = { ...data, images: uploadedImages };
+    // console.log("productData", productData);
+
+    axios
+      .post("/api/product", productData)
+      .then((response) => {
+        toast.success("Product created");
+        setIsProductCreated(true);
+        router.refresh();
+      })
+      .catch((error) => {
+        toast.error("Error to save product to db", error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
