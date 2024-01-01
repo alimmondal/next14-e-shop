@@ -36,14 +36,14 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
   // const { cartTotalQty } = useCart();
   const [isProductInCart, setIsProductInCart] = useState(false);
   const [cartProduct, setCartProduct] = useState<CartProductType>({
-    id: product.id,
-    name: product.name,
-    description: product.description,
-    category: product.category,
-    brand: product.brand,
-    selectedImg: { ...product.images[0] },
+    id: product?.id,
+    name: product?.name,
+    description: product?.description,
+    category: product?.category,
+    brand: product?.brand,
+    selectedImg: { ...product?.images[0] },
     quantity: 1,
-    price: product.price,
+    price: product?.price,
   });
 
   // console.log(cartProducts);
@@ -59,11 +59,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         setIsProductInCart(true);
       }
     }
-  }, [cartProducts, product.id]);
+  }, [cartProducts, product?.id]);
 
   const productRating =
-    product.reviews.reduce((acc: number, item: any) => acc + item.rating, 0) /
-    product.reviews.length;
+    product?.reviews.reduce((acc: number, item: any) => acc + item.rating, 0) /
+    product?.reviews.length;
 
   const Horizontal = () => {
     return <hr className="w-[30% my-2]" />;
@@ -108,23 +108,23 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
         />
       </div>
       <div className="flex flex-col gap-1 text-slate-700 text-sm">
-        <h2 className="text-3xl font-bold">{product.name}</h2>
+        <h2 className="text-3xl font-bold">{product?.name}</h2>
         <div className="flex gap-2">
           <Rating value={productRating} readOnly />
-          <div className="">{product.name}</div>
+          <div className="">{product?.name}</div>
         </div>
         <Horizontal />
-        <div className="text-justify">{product.description}</div>
+        <div className="text-justify">{product?.description}</div>
         <div>
           <span className="font-semibold">Category: </span>
-          {product.category}
+          {product?.category}
         </div>
         <div className="">
           <span className="font-semibold">Brand: </span>
-          {product.brand}
+          {product?.brand}
         </div>
-        <div className={product.inStock ? "text-teal-400" : "text-rose-400"}>
-          {product.inStock ? "In stock" : "Out of stock"}
+        <div className={product?.inStock ? "text-teal-400" : "text-rose-400"}>
+          {product?.inStock ? "In stock" : "Out of stock"}
         </div>
         {isProductInCart ? (
           <>
@@ -146,7 +146,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ product }) => {
           <>
             <div className="">
               <SetColor
-                images={product.images}
+                images={product?.images}
                 cartProduct={cartProduct}
                 handleColorSelect={handleColorSelect}
               />

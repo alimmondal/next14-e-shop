@@ -53,7 +53,7 @@ export default async function getProducts(params: IProductParams) {
 
     return products;
   } catch (error: any) {
-    console.log(error);
-    // throw new Error("error");
+    // console.log(error);
+    throw new Error(error);
   }
 }

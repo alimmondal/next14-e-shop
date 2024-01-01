@@ -3,6 +3,7 @@
 import ActionBtn from "@/app/components/ActionBtn";
 import Heading from "@/app/components/Heading";
 import Status from "@/app/components/Status";
+import firebaseApp from "@/libs/firebase";
 import { formatPrice } from "@/utils/formatPrice";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { Product } from "@prisma/client";
@@ -27,7 +28,7 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({
   products,
 }) => {
   const router = useRouter();
-  const storage = getStorage();
+  const storage = getStorage(firebaseApp);
   let rows: any = [];
 
   if (products) {
@@ -100,8 +101,18 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({
                 handleToggle(params.row.id, params.row.inStock);
               }}
             />
-            <ActionBtn icon={MdDelete} onClick={() => {}} />
-            <ActionBtn icon={MdRemoveRedEye} onClick={() => {}} />
+            <ActionBtn
+              icon={MdDelete}
+              onClick={() => {
+                handleDelete(params.row.id, params.row.images);
+              }}
+            />
+            <ActionBtn
+              icon={MdRemoveRedEye}
+              onClick={() => {
+                router.push(`product/${params.row.id}`);
+              }}
+            />
           </div>
         );
       },
@@ -143,8 +154,19 @@ const ManageProductsClient: React.FC<ManageProductsClientProps> = ({
       };
 
       await handleImageDelete();
+
+      axios
+        .delete(`/api/product/${id}`)
+        .then((res) => {
+          toast.success("Product deleted successfully");
+          router.refresh();
+        })
+        .catch((error) => {
+          toast.error("Failed to delete product");
+          console.log(error);
+        });
     },
-    [storage]
+    [storage, router]
   );
 
   return (

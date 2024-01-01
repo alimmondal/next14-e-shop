@@ -43,7 +43,7 @@ const ProductImgView: React.FC<ProductImgProps> = ({
   min-h-[300px]
   sm:min-h-[400px]"
       >
-        {product.images.map((image: selectedImgType) => {
+        {product?.images.map((image: selectedImgType) => {
           return (
             <div
               key={image.color}
