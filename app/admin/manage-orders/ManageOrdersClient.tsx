@@ -193,7 +193,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
               paginationModel: { page: 0, pageSize: 9 },
             },
           }}
-          pageSizeOptions={[9, 20]}
+          pageSizeOptions={[9, 20, 30]}
           checkboxSelection
           disableRowSelectionOnClick
         />
