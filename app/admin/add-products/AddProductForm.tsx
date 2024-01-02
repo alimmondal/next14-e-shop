@@ -64,7 +64,7 @@ const AddProductForm = () => {
 
   useEffect(() => {
     setCustomValue("images", images);
-  }, [images]);
+  }, []);
 
   useEffect(() => {
     if (isProductCreated) {

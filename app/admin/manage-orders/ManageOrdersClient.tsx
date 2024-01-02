@@ -1,5 +1,4 @@
 "use client";
-
 import ActionBtn from "@/app/components/ActionBtn";
 import Heading from "@/app/components/Heading";
 import Status from "@/app/components/Status";
@@ -19,9 +18,9 @@ import {
 } from "react-icons/md";
 
 interface ManageOrdersClientProps {
-  orders: ExtendOrder[];
+  orders: ExtendedOrder[] | undefined;
 }
-type ExtendOrder = Order & {
+type ExtendedOrder = Order & {
   user: User;
 };
 
@@ -32,7 +31,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
   if (orders) {
     rows = orders.map((order: any) => {
       return {
-        id: order?.id,
+        id: order.id,
         customer: order.user.name,
         amount: formatPrice(order.amount / 100),
         paymentStatus: order?.status,
@@ -73,8 +72,8 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
               <Status
                 text="complete"
                 icon={MdDone}
-                bg="bg-purple-200"
-                color="text-purple-700"
+                bg="bg-green-200"
+                color="text-green-700"
               />
             ) : (
               <></>
@@ -112,7 +111,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
                 color="text-green-700"
               />
             ) : (
-              <></>
+              <> </>
             )}
           </div>
         );
@@ -151,21 +150,18 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
     },
   ];
 
-  const handleDispatch = useCallback(
-    (id: string) => {
-      axios
-        .put("/api/order", { id, deliveryStatus: "dispatched" })
-        .then((res) => {
-          toast.success("Order Dispatched");
-          router.refresh();
-        })
-        .catch((error) => {
-          toast.error("Oops! Something went wrong");
-          console.log(error);
-        });
-    },
-    [router]
-  );
+  const handleDispatch = useCallback((id: string) => {
+    axios
+      .put("/api/order", { id, deliveryStatus: "dispatched" })
+      .then((res) => {
+        toast.success("Order Dispatched");
+        router.refresh();
+      })
+      .catch((error) => {
+        toast.error("Oops! Something went wrong");
+        console.log(error);
+      });
+  }, []);
 
   const handleDeliver = useCallback(
     (id: string) => {
@@ -197,7 +193,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
               paginationModel: { page: 0, pageSize: 9 },
             },
           }}
-          pageSizeOptions={[9, 20, 100]}
+          pageSizeOptions={[9, 20]}
           checkboxSelection
           disableRowSelectionOnClick
         />

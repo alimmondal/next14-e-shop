@@ -1,7 +1,6 @@
 import Container from "@/app/components/Container";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import NullData from "@/app/components/NullData";
-import getProducts from "@/actions/getProducts";
 import ManageOrdersClient from "./ManageOrdersClient";
 import getOrders from "@/actions/getOrders";
 
