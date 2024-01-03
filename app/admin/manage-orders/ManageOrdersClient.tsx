@@ -119,6 +119,8 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
     },
 
     { field: "date", headerName: "date", width: 130 },
+
+    // action
     {
       field: "action",
       headerName: "action",
@@ -141,7 +143,7 @@ const ManageOrdersClient: React.FC<ManageOrdersClientProps> = ({ orders }) => {
             <ActionBtn
               icon={MdRemoveRedEye}
               onClick={() => {
-                router.push(`order/${params.row.id}`);
+                router.push(`/order/${params.row.id}`);
               }}
             />
           </div>
