@@ -26,7 +26,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
         <div className="">
           {order?.status === "pending" ? (
             <Status
-              text="delivered"
+              text="pending"
               icon={MdAccessTimeFilled}
               bg="bg-slate-200"
               color="text-slate-700"
@@ -48,7 +48,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
         <div className="">
           {order?.deliveryStatus === "pending" ? (
             <Status
-              text="delivered"
+              text="pending"
               icon={MdAccessTimeFilled}
               bg="bg-slate-200"
               color="text-slate-700"
@@ -84,7 +84,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
 
         {order.products &&
           order.products.map((item) => {
-            <OrderItem key={item.id} item={item}></OrderItem>;
+            return <OrderItem key={item.id} item={item}></OrderItem>;
           })}
       </div>
     </div>
