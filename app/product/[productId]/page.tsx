@@ -1,17 +1,22 @@
 import Container from "@/app/components/Container";
 // import { product } from "@/utils/product";
+import getProductById from "@/actions/getProductById";
+import NullData from "@/app/components/NullData";
 import ListRating from "./ListRating";
 import ProductDetails from "./ProductDetails";
-import { products } from "@/utils/products";
 
 interface IParams {
   productId: any;
 }
 
-const Product = ({ params }: { params: IParams }) => {
+const Product = async ({ params }: { params: IParams }) => {
   //   console.log(params);
 
-  const product = products.find((item) => item.id === params.productId);
+  // const product = products.find((item) => item.id === params.productId);
+
+  const product = await getProductById(params);
+  if (!product)
+    return <NullData title="Oops! Product does not exist with the given id" />;
 
   return (
     <div className="pt-6">

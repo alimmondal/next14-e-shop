@@ -3,6 +3,7 @@ import { Redressed } from "next/font/google";
 import Link from "next/link";
 import Container from "../Container";
 import CartCount from "./CartCount";
+import Categories from "./Categories";
 import UserMenu from "./UserMenu";
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
@@ -49,6 +50,7 @@ const Navbar = async () => {
           </div>
         </Container>
       </div>
+      <Categories />
     </div>
   );
 };
