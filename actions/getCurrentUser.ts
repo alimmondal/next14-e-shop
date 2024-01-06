@@ -8,6 +8,7 @@ export async function getSession() {
 
 export async function getCurrentUser() {
   try {
+    await prisma.$connect();
     const session = await getSession();
 
     if (!session?.user?.email) {
@@ -34,5 +35,7 @@ export async function getCurrentUser() {
   } catch (error: any) {
     console.log(error);
     return null;
+  } finally {
+    await prisma.$disconnect();
   }
 }

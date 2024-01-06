@@ -4,8 +4,8 @@ import { getCurrentUser } from "@/actions/getCurrentUser";
 import getProductById from "@/actions/getProductById";
 import NullData from "@/app/components/NullData";
 import AddRating from "./AddRating";
-import ProductDetails from "./ProductDetails";
 import ListRating from "./ListRating";
+import ProductDetails from "./ProductDetails";
 
 interface IParams {
   productId: any;
@@ -25,10 +25,11 @@ const Product = async ({ params }: { params: IParams }) => {
     <div className="pt-6">
       <Container>
         <ProductDetails product={product}></ProductDetails>
-        <div className="flex flex-col mt-20 gap-4">Add Rating</div>
-        <div className="">
-          <AddRating product={product} user={user} />
-          <ListRating product={product} />
+        <div className="flex flex-col mt-20 gap-4">
+          <div className="">
+            <AddRating product={product} user={user} />
+            <ListRating product={product} />
+          </div>
         </div>
       </Container>
     </div>

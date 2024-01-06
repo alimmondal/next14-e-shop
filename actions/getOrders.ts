@@ -11,18 +11,6 @@ export default async function getOrders() {
       },
     });
 
-    // Handle null user field
-    // const ordersWithUser = orders.map((order) => ({
-    //   ...order,
-    //   user:
-    //     order.user ||
-    //     {
-    /* default user object or handle accordingly */
-    //     },
-    // }));
-
-    // return ordersWithUser;
-
     return orders;
   } catch (error: any) {
     console.log(error);

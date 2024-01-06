@@ -7,6 +7,7 @@ export interface IProductParams {
 
 export default async function getProducts(params: IProductParams) {
   try {
+    await prisma.$connect();
     const { category, searchTerm } = params;
 
     let searchString = searchTerm;
@@ -53,7 +54,9 @@ export default async function getProducts(params: IProductParams) {
 
     return products;
   } catch (error: any) {
-    // console.log(error);
-    throw new Error(error);
+    console.log(error);
+    // throw new Error(error);
+  } finally {
+    await prisma.$disconnect();
   }
 }

@@ -5,6 +5,7 @@ export interface IParams {
 }
 export default async function getProductById(params: IParams) {
   try {
+    await prisma.$connect();
     const { productId } = params;
 
     const product = await prisma.product.findUnique({
@@ -30,5 +31,8 @@ export default async function getProductById(params: IParams) {
   } catch (error: any) {
     // console.log(error);
     throw new Error(error);
+  } finally {
+    // Ensure to disconnect from the database after operations are complete
+    await prisma.$disconnect();
   }
 }

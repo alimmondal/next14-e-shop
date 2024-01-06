@@ -7,7 +7,7 @@ import { Rating } from "@mui/material";
 import { Order, Product, Review } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -40,10 +40,6 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user }) => {
 
   const router = useRouter();
 
-  useEffect(() => {
-    // setCustomValue("images", images);
-  }, []);
-
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
       shouldValidate: true,
@@ -53,18 +49,25 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user }) => {
   };
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log("Product data: ", data);
+    // console.log("Product rating: ", data);
     setIsLoading(true);
 
-    if (data.rating === 0) return toast.error("No rating selected");
+    if (data.rating === 0) {
+      setIsLoading(false);
+      return toast.error("No rating selected");
+    }
 
-    const ratingData = { ...data, userId: user?.id, product: product };
+    const ratingData = {
+      ...data,
+      userId: user?.id,
+      product: product,
+    };
 
     axios
       .post("/api/rating", ratingData)
       .then((response) => {
         toast.success("Rating submitted successfully");
-        router.refresh();
+        // router.refresh();
         reset();
       })
       .catch((error) => {
@@ -74,6 +77,23 @@ const AddRating: React.FC<AddRatingProps> = ({ product, user }) => {
         setIsLoading(false);
       });
   };
+
+  if (!user || !product) return null;
+
+  // const deliveredOrder = user?.orders.some(
+  //   (order) =>
+  //     order.products.find((item) => item.id === product.id) &&
+  //     order.deliveryStatus === "delivered"
+  // );
+
+  const userReview = product?.reviews.find((review: Review) => {
+    return review.userId === user.id;
+  });
+  // console.log("Review", userReview);
+  // console.log("deliveredOrder", deliveredOrder);
+
+  // if (userReview || deliveredOrder) return null;
+  if (userReview) return null;
 
   return (
     <div>
