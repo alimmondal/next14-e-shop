@@ -41,7 +41,7 @@ const AddProductForm = () => {
   const [images, setImages] = useState<ImageType[] | null>();
   const [isProductCreated, setIsProductCreated] = useState(false);
 
-  //   console.log("images>>>>>>>>", images);
+  console.log("images>>>>>>>>", images);
 
   const {
     register,
@@ -64,7 +64,7 @@ const AddProductForm = () => {
 
   useEffect(() => {
     setCustomValue("images", images);
-  }, []);
+  }, [images]);
 
   useEffect(() => {
     if (isProductCreated) {
@@ -72,7 +72,7 @@ const AddProductForm = () => {
       setImages(null);
       setIsProductCreated(false);
     }
-  }, [isProductCreated, reset]);
+  }, [isProductCreated]);
 
   const category = watch("category");
 
@@ -112,7 +112,7 @@ const AddProductForm = () => {
 
     if (!data.category) {
       setIsLoading(false);
-      return toast.error("Category is selected");
+      return toast.error("Category is not selected");
     }
     if (!data.images || data.images.length === 0) {
       setIsLoading(false);
@@ -280,7 +280,7 @@ const AddProductForm = () => {
         </div>
       </div>
       <Button
-        label={isLoading ? "Loading..." : "Add Product"}
+        label={isLoading ? "Loading..." : "Create Product"}
         onClick={handleSubmit(onSubmit)}
       />
     </>

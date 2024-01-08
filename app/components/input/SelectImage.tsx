@@ -13,14 +13,12 @@ const SelectImage: React.FC<SelectImageProps> = ({
   item,
   handleFileChange,
 }) => {
-  const onDrop = useCallback(
-    (acceptedFiles: File[]) => {
-      if (acceptedFiles.length > 0) {
-        handleFileChange(acceptedFiles[0]);
-      }
-    },
-    [handleFileChange]
-  );
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    if (acceptedFiles.length > 0) {
+      handleFileChange(acceptedFiles[0]);
+    }
+  }, []);
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: { "image/*": [".jpeg", ".png"] },
@@ -35,7 +33,7 @@ const SelectImage: React.FC<SelectImageProps> = ({
       {isDragActive ? (
         <p>Drop the image here ...</p>
       ) : (
-        <p className="">+{item?.color} Image</p>
+        <p className="">+ {item?.color} Image</p>
       )}
     </div>
   );
