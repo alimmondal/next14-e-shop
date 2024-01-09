@@ -1,3 +1,5 @@
+export const revalidate = 0;
+
 import getProducts, { IProductParams } from "@/actions/getProducts";
 import Container from "./components/Container";
 import HomeBanner from "./components/HomeBanner";
@@ -41,7 +43,8 @@ export default async function Home({ searchParams }: HomeProps) {
         md:grid-cols-3 
         lg:grid-cols-4
         xl:grid-cols-5
-        2xl:grid-cols-6 
+        2xl:grid-cols-6
+        gap-8 
         "
         >
           {shuffledArray?.map((product: any) => {
