@@ -21,8 +21,8 @@ const CheckoutClient = () => {
 
   const router = useRouter();
 
-  //   console.log("paymentIntent", paymentIntent);
-  //   console.log("clientSecret", clientSecret);
+  // console.log("paymentIntent", paymentIntent);
+  // console.log("clientSecret", clientSecret);
 
   useEffect(() => {
     // create a payment intent as soon as the page is loaded
@@ -83,7 +83,7 @@ const CheckoutClient = () => {
 
       {loading && <div className="text-center">Loading Checkout...</div>}
 
-      {loading && (
+      {error && (
         <div className="text-center text-rose-500">Something went wrong</div>
       )}
 
