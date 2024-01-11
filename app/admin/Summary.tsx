@@ -1,14 +1,17 @@
 "use client";
+import { SafeUser } from "@/type";
 import { formatNumber } from "@/utils/formatNumber";
 import { formatPrice } from "@/utils/formatPrice";
 import { Order, Product, User } from "@prisma/client";
 import React, { useEffect, useState } from "react";
 import Heading from "../components/Heading";
+import NullData from "../components/NullData";
 
 interface SummaryProps {
   orders: Order[] | null | undefined;
   products: Product[] | undefined;
   users: User[] | null | undefined;
+  currentUser: SafeUser | null;
 }
 
 type SummaryDataType = {
@@ -18,7 +21,13 @@ type SummaryDataType = {
   };
 };
 
-const Summary: React.FC<SummaryProps> = ({ products, orders, users }) => {
+const Summary: React.FC<SummaryProps> = ({
+  products,
+  orders,
+  users,
+  currentUser,
+}) => {
+  // console.log("users", users);
   const [summaryData, setSummaryData] = useState<SummaryDataType>({
     sale: {
       label: "Total Sale",

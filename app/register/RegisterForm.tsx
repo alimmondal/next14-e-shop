@@ -4,7 +4,7 @@ import axios from "axios";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import {
@@ -38,12 +38,12 @@ const RegisterForm: React.FC<LoginFormProps> = ({ currentUser }) => {
 
   const router = useRouter();
 
-  useEffect(() => {
-    if (currentUser) {
-      router.push("/cart");
-      router.refresh();
-    }
-  }, [currentUser, router]);
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     router.push("/cart");
+  //     router.refresh();
+  //   }
+  // }, [currentUser, router]);
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);

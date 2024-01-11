@@ -2,7 +2,7 @@
 import { SafeUser } from "@/type";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import Avatar from "../Avatar";
 import BackDrop from "./BackDrop";
@@ -15,9 +15,18 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    // Close the menu when the user logs in or logs out
+    // console.log("Current User:", currentUser);
+    if (currentUser) {
+      setIsOpen(false);
+    }
+  }, [currentUser]);
+
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
+
   return (
     <>
       <div className="relative z-30">
@@ -60,6 +69,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
             {currentUser ? (
               <div className="">
                 <Link href={"/orders"}>
+                  <MenuItem onClick={toggleOpen}>Your Profile</MenuItem>
+                </Link>
+                <Link href={"/orders"}>
                   <MenuItem onClick={toggleOpen}>Your Orders</MenuItem>
                 </Link>
                 <Link href={"/admin"}>
@@ -88,6 +100,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           </div>
         )}
       </div>
+
       {isOpen ? <BackDrop onclick={toggleOpen} /> : null}
     </>
   );

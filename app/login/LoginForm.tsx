@@ -48,7 +48,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
       setIsLoading(false);
 
       if (callback?.ok) {
-        router.push("/cart");
+        if (data.role?.toUpperCase() === "ADMIN") {
+          router.push("/admin");
+        } else {
+          router.push("/cart");
+        }
         // router.refresh();
         toast.success("Logged in");
       }
@@ -93,6 +97,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
         errors={errors}
         required
         type="password"
+      />
+      <Input
+        id="role"
+        label="Role if admin otherwise optional"
+        disabled={isLoading}
+        register={register}
+        errors={errors}
       />
       <Button
         label={isLoading ? "Loading..." : "Login"}

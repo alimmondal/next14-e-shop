@@ -79,7 +79,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
       />
       <h2 className="font-semibold mt-4 mb-6">Payment information</h2>
       <PaymentElement id="payment-element" options={{ layout: "tabs" }} />
-      <div className="py-4 text-center text-slate-700 font-bold text-2xl">
+      <div className="py-4 text-center text-slate-700 font-bold text-xl">
         Total:{formattedPrice}
       </div>
 
