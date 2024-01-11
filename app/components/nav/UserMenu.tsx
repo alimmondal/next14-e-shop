@@ -15,6 +15,10 @@ interface UserMenuProps {
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const toggleOpen = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
+
   useEffect(() => {
     // Close the menu when the user logs in or logs out
     // console.log("Current User:", currentUser);
@@ -22,10 +26,6 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
       setIsOpen(false);
     }
   }, [currentUser]);
-
-  const toggleOpen = useCallback(() => {
-    setIsOpen((prev) => !prev);
-  }, []);
 
   return (
     <>
@@ -68,7 +68,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           >
             {currentUser ? (
               <div className="">
-                <Link href={"/orders"}>
+                <Link href={"/profile"}>
                   <MenuItem onClick={toggleOpen}>Your Profile</MenuItem>
                 </Link>
                 <Link href={"/orders"}>
