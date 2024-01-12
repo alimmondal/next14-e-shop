@@ -2,7 +2,7 @@
 import { SafeUser } from "@/type";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 import Avatar from "../Avatar";
 import BackDrop from "./BackDrop";
@@ -14,18 +14,10 @@ interface UserMenuProps {
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const role = currentUser?.role;
   const toggleOpen = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
-
-  useEffect(() => {
-    // Close the menu when the user logs in or logs out
-    // console.log("Current User:", currentUser);
-    if (currentUser) {
-      setIsOpen(false);
-    }
-  }, [currentUser]);
 
   return (
     <>
@@ -66,7 +58,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
           cursor-pointer
           "
           >
-            {currentUser ? (
+            {role === "ADMIN" ? (
               <div className="">
                 <Link href={"/profile"}>
                   <MenuItem onClick={toggleOpen}>Your Profile</MenuItem>
@@ -77,6 +69,25 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 <Link href={"/admin"}>
                   <MenuItem onClick={toggleOpen}>Admin Dashboard</MenuItem>
                 </Link>
+                <hr />
+                <MenuItem
+                  onClick={() => {
+                    toggleOpen();
+                    signOut();
+                  }}
+                >
+                  Logout
+                </MenuItem>
+              </div>
+            ) : role === "USER" ? (
+              <div className="">
+                <Link href={"/profile"}>
+                  <MenuItem onClick={toggleOpen}>Your Profile</MenuItem>
+                </Link>
+                <Link href={"/orders"}>
+                  <MenuItem onClick={toggleOpen}>Your Orders</MenuItem>
+                </Link>
+
                 <hr />
                 <MenuItem
                   onClick={() => {

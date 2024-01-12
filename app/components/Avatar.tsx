@@ -5,7 +5,7 @@ import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 
 interface AvatarProps {
-  src?: string | null | undefined;
+  src?: string | undefined | null;
 }
 
 const Avatar: React.FC<AvatarProps> = ({ src }) => {

@@ -11,6 +11,9 @@ const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 const Navbar = async () => {
   const currentUser = await getCurrentUser();
   // console.log("USername: ", currentUser);
+
+  // const session = await getSession();
+  // console.log("session: " + session);
   return (
     <div
       className="
