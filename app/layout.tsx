@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/nav/Navbar";
 import "./globals.css";
+import FacebookMsg from "./components/FacebookMsg";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["700", "200", "400"] });
 
@@ -33,6 +34,7 @@ export default async function RootLayout({
           <div className="flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow">{children}</main>
+            <FacebookMsg />
             <Footer />
           </div>
         </CartProvider>
