@@ -81,6 +81,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ currentUser }) => {
         />
         <hr className="bg-slate-300 w-full h-px mt-4" />
       </div>
+      <div className="text-center">
+        <h1 className="font-semibold text-center">Loggin Credentials</h1>
+        <p className="">Admin Loggin: alim@gmail.com</p>
+        <p className="">Password: 123456</p>
+      </div>
       <Input
         id="email"
         label="Email"
