@@ -34,7 +34,15 @@ export default async function Home({ searchParams }: HomeProps) {
       <Container>
         <div className="">
           <HomeBanner />
+          {/* <Slider/> */}
         </div>
+
+        {/* <div className="cards">
+          <Cardscg title="Women" />
+          <Cardscg title="Men" />
+          <Cardscg title="Accessoires" />
+        </div> */}
+
         <div
           className="
         grid
