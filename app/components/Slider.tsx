@@ -1,7 +1,9 @@
-import { React, useEffect, useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 // import { Link } from "react-router-dom";
 import ShopNowBtn from "./ShopNowBtn";
+
 const Slider = () => {
   const SliderData = [
     {
@@ -27,7 +29,7 @@ const Slider = () => {
   const [auto, setauto] = useState(true);
 
   const intervaltime = 6000;
-  let slideinterval;
+  let slideinterval: string | number | NodeJS.Timeout | undefined;
   const nextslide = () => {
     clearInterval(slideinterval);
     slideinterval = setInterval(nextslide, intervaltime);
@@ -62,9 +64,8 @@ const Slider = () => {
             <h1 className="titleslider">{slide.title}</h1>
             <h3 className="subtitleslider">{slide.subtitle}</h3>
             <div className="content">
-              {" "}
               {/* <Link to="/Shop"> */}
-               <ShopNowBtn />
+              <ShopNowBtn />
               {/* </Link>{" "} */}
             </div>
           </div>

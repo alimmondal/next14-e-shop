@@ -5,7 +5,9 @@ import Container from "./components/Container";
 import HomeBanner from "./components/HomeBanner";
 import NullData from "./components/NullData";
 import ProductCard from "./components/products/ProductCard";
-
+import Cardscg from "./components/Cardscg";
+import Slider from "../app/components/Slider";
+import Categories from "./components/nav/Categories";
 interface HomeProps {
   searchParams: IProductParams;
 }
@@ -30,18 +32,21 @@ export default async function Home({ searchParams }: HomeProps) {
   const shuffledArray = shuffleArray(products);
 
   return (
-    <div className="p-8">
-      <Container>
-        <div className="">
-          <HomeBanner />
-          {/* <Slider/> */}
-        </div>
+    <div className="">
+      <div className="">
+        {/* <HomeBanner /> */}
+        <Slider />
+      </div>
 
-        {/* <div className="cards">
+      <Container>
+        <div className="cards">
           <Cardscg title="Women" />
           <Cardscg title="Men" />
           <Cardscg title="Accessoires" />
-        </div> */}
+        </div>
+        {/* <div className="py-8"> */}
+        <Categories />
+        {/* </div> */}
 
         <div
           className="
