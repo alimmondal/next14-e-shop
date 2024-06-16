@@ -2,12 +2,14 @@ export const revalidate = 0;
 
 import getProducts, { IProductParams } from "@/actions/getProducts";
 import Container from "./components/Container";
-import HomeBanner from "./components/HomeBanner";
+// import HomeBanner from "./components/HomeBanner";
 import NullData from "./components/NullData";
 import ProductCard from "./components/products/ProductCard";
 import Cardscg from "./components/Cardscg";
 import Slider from "../app/components/Slider";
 import Categories from "./components/nav/Categories";
+import ProductsC from "../app/components/ProductsC";
+
 interface HomeProps {
   searchParams: IProductParams;
 }
@@ -63,6 +65,9 @@ export default async function Home({ searchParams }: HomeProps) {
           {shuffledArray?.map((product: any) => {
             return <ProductCard key={product.id} data={product} />;
           })}
+        </div>
+        <div className="">
+          <ProductsC />
         </div>
       </Container>
     </div>

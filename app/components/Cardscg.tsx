@@ -10,7 +10,7 @@ const Cardscg = ({ title }: CardScgProps) => {
   return (
     <div className="cardscg">
       <h1>{title}</h1>
-      <Link href={"/"} className="ShopNowcg">
+      <Link href={"/shop"} className="ShopNowcg">
         Shop Now
       </Link>
     </div>

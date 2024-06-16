@@ -1,9 +1,10 @@
 import React from "react";
+import ProductsC from "../components/ProductsC";
 
 const ShopPage = () => {
   return (
-    <div className="h-screen flex items-center justify-center text-4xl">
-      Shop Page coming soon ....
+    <div className="h-full ">
+      <ProductsC />
     </div>
   );
 };

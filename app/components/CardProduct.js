@@ -4,9 +4,11 @@ import {
   // HiShoppingCart
   IoIosCart,
 } from "react-icons/io";
-import { Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+// import { Image } from "@chakra-ui/react";
+
 import Rating from "./Rating";
+import Link from "next/link";
+import Image from "next/image";
 // import { addToCart } from "../actions/cartActions";
 // import { useDispatch, useSelector } from "react-redux";
 const CardProduct = ({ product }) => {
@@ -44,11 +46,12 @@ const CardProduct = ({ product }) => {
             className="imgProduct"
             boxSize="350px"
             objectFit="cover"
+            alt="image"
             src={product.images}
           />
         </div>
         <div className="bottomcard">
-          <Link to={`/product/${product._id}`} exact>
+          <Link href={`/product/${product._id}`} exact>
             <span>{product.name}</span>
           </Link>
           {Incart ? (
@@ -71,7 +74,7 @@ const CardProduct = ({ product }) => {
           </div>
         </div>
 
-        <Link to={`/product/${product._id}`} exact>
+        <Link href={`#`} exact>
           <button
             className={showbtn ? "QuickView QuickViewActive" : "QuickView"}
           >
