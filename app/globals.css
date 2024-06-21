@@ -267,6 +267,7 @@ nav {
   right: 15px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  border: 1px solid #d70f0f;
 }
 .prev {
   position: absolute;
@@ -275,6 +276,7 @@ nav {
   left: 15px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  border: 1px solid #d70f0f;
 }
 .next:hover,
 .prev:hover {
@@ -687,47 +689,55 @@ nav {
   .navLinks li {
     opacity: 0;
   }
+  .slide .titleslider {
+    left: 100px;
+    top: -580px;
+    /* color: #000; */
+  }
   .slide:first-child {
     position: absolute;
     background-position: bottom -0px right -150px;
-    color: #0071dc;
+    color: orange;
   }
   .slide:nth-child(2) {
     position: absolute;
     background-position: bottom -0px right -100px;
+    color: #000;
   }
   .slide:nth-child(3) {
     /* background: url("../public/images/product2media.png") no-repeat center
     top/cover; */
     position: absolute;
     background-position: bottom -0px right -100px;
+    color: #000;
   }
   .slide:nth-child(4) {
     position: absolute;
     background-position: bottom -0px right -100px;
+    color: #000;
   }
-  .slide .titleslider {
-    left: 120px;
-  }
+
   .slide.current .titleslider {
     font-size: 26px;
     transform: translateY(770px);
   }
-  .slide:first-child .titleslider {
+  /* .slide:first-child .titleslider {
     left: 150px;
     font-size: 26px;
-  }
+  } */
 
   .slide.current .subtitleslider {
     font-size: 20px;
-    left: 200px;
+    left: 100px;
     transform: translateY(830px);
-    top: -580px;
+    top: -600px;
+    font-size: 12px;
+    font-weight: bold;
   }
-  .slide:first-child .subtitleslider {
-    left: 220px;
-    top: -580px;
-  }
+  /* .slide:first-child .subtitleslider {
+    left: 180px;
+    top: -600px;
+  } */
   .slide.current .content {
     transform: translateX(840px);
     /* bottom: 200px; */
