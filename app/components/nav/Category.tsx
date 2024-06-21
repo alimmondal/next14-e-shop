@@ -50,7 +50,7 @@ const Category: React.FC<CategoryProps> = ({ label, icon: Icon, selected }) => {
       }`}
     >
       <Icon size={20} />
-      <div className="font-medium text-sm">{label}</div>
+      <div className="font-medium text-sm mr-4">{label}</div>
     </div>
   );
 };

@@ -35,21 +35,21 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <div className="">
-      <div className="">
+      <div className="overflow-hidden">
         {/* <HomeBanner /> */}
         <Slider />
       </div>
 
       <Container>
-        <div className="cards">
+        <div className="cards overflow-hidden">
           <Cardscg title="Women" />
           <Cardscg title="Men" />
           <Cardscg title="Accessoires" />
         </div>
-        {/* <div className="py-8"> */}
-        <Categories />
-        {/* </div> */}
-
+        <div className="py-10">
+          <Categories />
+        </div>
+        {/* Electronic products */}
         <div
           className="
         grid
@@ -66,7 +66,7 @@ export default async function Home({ searchParams }: HomeProps) {
             return <ProductCard key={product.id} data={product} />;
           })}
         </div>
-        <div className="">
+        <div className="pt-10 overflow-hidden">
           <ProductsC />
         </div>
       </Container>

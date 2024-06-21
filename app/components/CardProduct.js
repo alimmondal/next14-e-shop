@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import {
-  // HiOutlineShoppingCart,
-  // HiShoppingCart
+
   IoIosCart,
 } from "react-icons/io";
 // import { Image } from "@chakra-ui/react";

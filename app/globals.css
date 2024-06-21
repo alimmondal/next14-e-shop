@@ -50,6 +50,7 @@
   margin-left: 80px;
   margin-right: 80px;
 }
+
 nav {
   width: 100%;
   position: fixed;
@@ -298,7 +299,7 @@ nav {
 /*/////////////Categories Cards ///////////////*/
 .cards {
   display: grid;
-  margin: 48px;
+  margin: 48px 0;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   column-gap: 50px;
   row-gap: 20px;
@@ -548,7 +549,7 @@ nav {
 .cardsProduct {
   width: auto;
   display: grid;
-  margin: 35px;
+  margin: 35px 0;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   /* justify-content: space-around; */
   column-gap: 10px;
@@ -654,6 +655,7 @@ nav {
     margin-left: 0px;
   }
 }
+
 @media screen and (max-width: 768px) {
   .main {
     overflow-x: hidden;
@@ -679,6 +681,7 @@ nav {
   }
   .slider {
     z-index: 0;
+    height: 80vh;
   }
 
   .navLinks li {
@@ -686,21 +689,22 @@ nav {
   }
   .slide:first-child {
     position: absolute;
-    background-position: bottom -80px right -200px;
+    background-position: bottom -0px right -150px;
+    color: #0071dc;
   }
   .slide:nth-child(2) {
     position: absolute;
-    background-position: bottom -80px right -100px;
+    background-position: bottom -0px right -100px;
   }
   .slide:nth-child(3) {
-    background: url("../public/images/product2media.png") no-repeat center
-      top/cover;
+    /* background: url("../public/images/product2media.png") no-repeat center
+    top/cover; */
     position: absolute;
-    background-position: bottom -80px right -30px;
+    background-position: bottom -0px right -100px;
   }
   .slide:nth-child(4) {
     position: absolute;
-    background-position: bottom -80px right -100px;
+    background-position: bottom -0px right -100px;
   }
   .slide .titleslider {
     left: 120px;
@@ -729,13 +733,19 @@ nav {
     /* bottom: 200px; */
   }
   .ShopNow {
-    width: 100px;
+    width: 150px;
     font-size: 13px;
     padding: 11px 0px;
   }
-  .cards {
-    margin: 30px;
+  .slide .content {
+    opacity: 0;
+    position: absolute;
+    left: -650px;
+    bottom: 70px;
   }
+  /* .cards {
+    margin: 30px;
+  } */
   .logo {
     /* position: absolute; */
     width: 100%;
@@ -763,9 +773,9 @@ nav {
     margin-right: 12px;
     display: inline-block;
   }
-  .cardsProduct {
-    /* margin-left: 60px; */
-  }
+  /* .cardsProduct {
+    margin-left: 60px;
+  } */
   .Cgfilter,
   .filterarea {
     margin: 0px;

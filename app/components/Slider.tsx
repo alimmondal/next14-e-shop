@@ -54,7 +54,7 @@ const Slider = () => {
   });
 
   return (
-    <div className="slider">
+    <div className="slider md:top-0">
       {SliderData.map((slide, index) => {
         return (
           <div

@@ -1,19 +1,32 @@
+// "use client";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import { Redressed } from "next/font/google";
 import Link from "next/link";
 import Container from "../Container";
 import CartCount from "./CartCount";
-import Categories from "./Categories";
+// import Categories from "./Categories";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
+import { useEffect, useState } from "react";
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 const Navbar = async () => {
+  // const [nav, setNav] = useState(false);
   const currentUser = await getCurrentUser();
   // console.log("USername: ", currentUser);
 
   // const session = await getSession();
   // console.log("session: " + session);
+
+  // const onChangeBack = () => {
+  //   if (window.scrollY >= 60) {
+  //     setNav(true);
+  //   } else {
+  //     setNav(false);
+  //   }
+  // };
+  // window.addEventListener("scroll", onChangeBack);
+
   return (
     <div
       className="
