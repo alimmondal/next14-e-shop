@@ -50,7 +50,7 @@ const CardProduct = ({ product }) => {
           />
         </div>
         <div className="bottomcard">
-          <Link href={`/product/${product._id}`} exact>
+          <Link href={`/shop/${product._id}`} exact>
             <span>{product.name}</span>
           </Link>
           {Incart ? (
@@ -72,9 +72,10 @@ const CardProduct = ({ product }) => {
             />
           </div>
         </div>
-
-        <Link href={`#`} exact>
+          
+        <Link href={`/shop/${product._id}`} exact>
           <button
+            // onClick={() => router.push(`/product/${product._id}`)}
             className={showbtn ? "QuickView QuickViewActive" : "QuickView"}
           >
             {" "}

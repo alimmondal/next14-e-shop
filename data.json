@@ -1,0 +1,58 @@
+{
+  "Products": [
+    {
+      "_id": 1,
+      "name": "Man's Jackets",
+      "price": "100",
+      "images": "/jacket.jpg"
+    },
+    {
+      "_id": 2,
+      "name": "Body lotion",
+      "price": "100",
+      "images": "lotion"
+    },
+    {
+      "_id": 3,
+      "name": "bag",
+      "price": "100",
+      "images": "bag"
+    },
+    {
+      "_id": 4,
+      "name": "lipstick",
+      "price": "100",
+      "images": "lipstick"
+    },
+    {
+      "_id": 5,
+      "name": "Man's short",
+      "price": "100",
+      "images": "short"
+    },
+    {
+      "_id": 6,
+      "name": "perfume",
+      "price": "100",
+      "images": "perfume"
+    },
+    {
+      "_id": 7,
+      "name": "Women's shoe",
+      "price": "100",
+      "images": "shoe"
+    },
+    {
+      "_id": 8,
+      "name": "sanitizer",
+      "price": "100",
+      "images": "sanitizer"
+    },
+    {
+      "_id": 9,
+      "name": "Nail polish",
+      "price": "100",
+      "images": "nail"
+    }
+  ]
+}

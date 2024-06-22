@@ -23,7 +23,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 const ProductsC = () => {
-  const Products = [
+  
+const Products = [
     {
       _id: 1,
       name: "Man's Jackets",

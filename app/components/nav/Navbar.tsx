@@ -7,7 +7,6 @@ import CartCount from "./CartCount";
 // import Categories from "./Categories";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
-import { useEffect, useState } from "react";
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 const Navbar = async () => {
