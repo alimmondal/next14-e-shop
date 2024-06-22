@@ -4,55 +4,109 @@
       "_id": 1,
       "name": "Man's Jackets",
       "price": "100",
-      "images": "/jacket.jpg"
+      "images": "/jacket.jpg",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "Man",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     },
     {
       "_id": 2,
       "name": "Body lotion",
       "price": "100",
-      "images": "/lotion.jpg"
+      "images": "/lotion.jpg",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "Cosmetics",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     },
     {
       "_id": 3,
       "name": "bag",
       "price": "100",
-      "images": "/bag.jpg"
+      "images": "/bag.jpg",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "Women",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     },
     {
       "_id": 4,
       "name": "lipstick",
       "price": "100",
-      "images": "/lipstick.png"
+      "images": "/lipstick.png",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "Women",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     },
     {
       "_id": 5,
       "name": "Man's short",
       "price": "100",
-      "images": "/short.jpg"
+      "images": "/short.jpg",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "Man",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     },
     {
       "_id": 6,
       "name": "perfume",
       "price": "100",
-      "images": "/perfume.jpg"
+      "images": "/perfume.jpg",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "Cosmetics",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     },
     {
       "_id": 7,
       "name": "Women's shoe",
       "price": "100",
-      "images": "/shoe.jpg"
+      "images": "/shoe.jpg",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "man",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     },
     {
       "_id": 8,
       "name": "sanitizer",
       "price": "100",
-      "images": "/sanitizer.jpg"
+      "images": "/sanitizer.jpg",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "Cosmetics",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     },
     {
       "_id": 9,
       "name": "Nail polish",
       "price": "100",
-      "images": "/nail.webp"
+      "images": "/nail.webp",
+      "description": "Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge.Smudged colorful lipstick pink texture background. Makeup beauty cosmetic product swatch. Macro closeup image. Make up cosmetics creamy smudge",
+      "brand": "Nail",
+      "category": "Cosmetics",
+      "inStock": true,
+      "reviews": [""],
+      "createdAt": "03/05/2024"
     }
   ]
 }
