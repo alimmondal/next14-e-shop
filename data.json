@@ -10,49 +10,49 @@
       "_id": 2,
       "name": "Body lotion",
       "price": "100",
-      "images": "lotion"
+      "images": "/lotion.jpg"
     },
     {
       "_id": 3,
       "name": "bag",
       "price": "100",
-      "images": "bag"
+      "images": "/bag.jpg"
     },
     {
       "_id": 4,
       "name": "lipstick",
       "price": "100",
-      "images": "lipstick"
+      "images": "/lipstick.png"
     },
     {
       "_id": 5,
       "name": "Man's short",
       "price": "100",
-      "images": "short"
+      "images": "/short.jpg"
     },
     {
       "_id": 6,
       "name": "perfume",
       "price": "100",
-      "images": "perfume"
+      "images": "/perfume.jpg"
     },
     {
       "_id": 7,
       "name": "Women's shoe",
       "price": "100",
-      "images": "shoe"
+      "images": "/shoe.jpg"
     },
     {
       "_id": 8,
       "name": "sanitizer",
       "price": "100",
-      "images": "sanitizer"
+      "images": "/sanitizer.jpg"
     },
     {
       "_id": 9,
       "name": "Nail polish",
       "price": "100",
-      "images": "nail"
+      "images": "/nail.webp"
     }
   ]
 }
