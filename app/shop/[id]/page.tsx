@@ -27,7 +27,7 @@ const SingleProduct = async ({ params }: { params: any }) => {
   return (
     <Container>
       <p className="text-rose-700 text-center mt-10">
-        This page is incomplete!!! I'm working on this page.
+        This page is incomplete!!! I&apos;m working on this page.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 sm:mt-28">
         <div
