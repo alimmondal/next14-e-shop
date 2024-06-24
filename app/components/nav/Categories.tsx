@@ -1,7 +1,6 @@
 "use client";
 import { categories } from "@/utils/Categories";
 import { usePathname, useSearchParams } from "next/navigation";
-import Container from "../Container";
 import Category from "./Category";
 
 const Categories = () => {

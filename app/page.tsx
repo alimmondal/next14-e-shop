@@ -9,7 +9,6 @@ import Cardscg from "./components/Cardscg";
 import Slider from "../app/components/Slider";
 import Categories from "./components/nav/Categories";
 import ProductsC from "../app/components/ProductsC";
-import SearchBar from "./components/nav/SearchBar";
 
 interface HomeProps {
   searchParams: IProductParams;

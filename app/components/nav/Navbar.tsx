@@ -1,4 +1,3 @@
-// "use client";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 import { Redressed } from "next/font/google";
 import Link from "next/link";
@@ -7,7 +6,6 @@ import CartCount from "./CartCount";
 // import Categories from "./Categories";
 import SearchBar from "./SearchBar";
 import UserMenu from "./UserMenu";
-import Categories from "./Categories";
 const redressed = Redressed({ subsets: ["latin"], weight: ["400"] });
 
 const Navbar = async () => {
