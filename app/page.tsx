@@ -2,13 +2,10 @@ export const revalidate = 0;
 
 import getProducts, { IProductParams } from "@/actions/getProducts";
 import Container from "./components/Container";
-// import HomeBanner from "./components/HomeBanner";
 import NullData from "./components/NullData";
 import ProductCard from "./components/products/ProductCard";
-import Cardscg from "./components/Cardscg";
-import Slider from "../app/components/Slider";
 import Categories from "./components/nav/Categories";
-import ProductsC from "../app/components/ProductsC";
+import HomeBanner from "./components/HomeBanner";
 
 interface HomeProps {
   searchParams: IProductParams;
@@ -34,24 +31,14 @@ export default async function Home({ searchParams }: HomeProps) {
   const shuffledArray = shuffleArray(products);
 
   return (
-    <div className="">
-      <div className="overflow-hidden">
-        {/* <HomeBanner /> */}
-        <Slider />
+    <Container>
+      <div className="py-10 ">
+        <Categories />
       </div>
-
-      <Container>
-        <div className="cards overflow-hidden">
-          <Cardscg title="Women" />
-          <Cardscg title="Men" />
-          <Cardscg title="Accessoires" />
-        </div>
-        <div className="py-10 ">
-          <Categories />
-        </div>
-        {/* Electronic products */}
-        <div
-          className="
+      <HomeBanner />
+      {/* Electronic products */}
+      <div
+        className="
         grid
         grid-cols-2 
         sm:grid-cols-2 
@@ -61,15 +48,11 @@ export default async function Home({ searchParams }: HomeProps) {
         2xl:grid-cols-6
         gap-8 
         "
-        >
-          {shuffledArray?.map((product: any) => {
-            return <ProductCard key={product.id} data={product} />;
-          })}
-        </div>
-        <div className="pt-10 overflow-hidden">
-          <ProductsC />
-        </div>
-      </Container>
-    </div>
+      >
+        {shuffledArray?.map((product: any) => {
+          return <ProductCard key={product.id} data={product} />;
+        })}
+      </div>
+    </Container>
   );
 }
