@@ -2,10 +2,15 @@ export const revalidate = 0;
 
 import getProducts, { IProductParams } from "@/actions/getProducts";
 import Container from "./components/Container";
+// import HomeBanner from "./components/HomeBanner";
 import NullData from "./components/NullData";
 import ProductCard from "./components/products/ProductCard";
+import Cardscg from "./components/Cardscg";
+import Slider from "../app/components/Slider";
 import Categories from "./components/nav/Categories";
+import ProductsC from "../app/components/ProductsC";
 import HomeBanner from "./components/HomeBanner";
+import Category from "./components/nav/Category";
 
 interface HomeProps {
   searchParams: IProductParams;
@@ -14,11 +19,11 @@ interface HomeProps {
 export default async function Home({ searchParams }: HomeProps) {
   const products = await getProducts(searchParams);
 
-  if (products?.length === 0) {
-    return (
-      <NullData title="Oops! No product found. Click 'all' to clear filters" />
-    );
-  }
+  // if (products?.length === 0) {
+  //   return (
+
+  //   );
+  // }
 
   function shuffleArray(array: any) {
     for (let i = array?.length - 1; i > 0; i--) {
@@ -31,14 +36,19 @@ export default async function Home({ searchParams }: HomeProps) {
   const shuffledArray = shuffleArray(products);
 
   return (
-    <Container>
-      <div className="py-10 ">
+    <div className="">
+      <div className="pb-10">
         <Categories />
+        <hr />
       </div>
-      <HomeBanner />
-      {/* Electronic products */}
-      <div
-        className="
+      <Container>
+        <HomeBanner />
+
+        {products?.length === 0 ? (
+          <NullData title="Oops! No product found. Click 'all' to clear filters" />
+        ) : (
+          <div
+            className="
         grid
         grid-cols-2 
         sm:grid-cols-2 
@@ -48,11 +58,13 @@ export default async function Home({ searchParams }: HomeProps) {
         2xl:grid-cols-6
         gap-8 
         "
-      >
-        {shuffledArray?.map((product: any) => {
-          return <ProductCard key={product.id} data={product} />;
-        })}
-      </div>
-    </Container>
+          >
+            {shuffledArray?.map((product: any) => {
+              return <ProductCard key={product.id} data={product} />;
+            })}
+          </div>
+        )}
+      </Container>
+    </div>
   );
 }
