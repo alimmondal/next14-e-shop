@@ -14,7 +14,7 @@ const Categories = () => {
 
   return (
     <Container>
-      <div className="py-4 flex flex-row items-center justify-start gap-32 overflow-x-auto">
+      <div className="py-4 flex flex-row items-center justify-start gap-2 md:gap-32 overflow-x-auto">
         {categories.map((item) => (
           <Category
             key={item.label}
